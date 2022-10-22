@@ -1,0 +1,95 @@
+﻿<Window x:Class="cfc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cfc"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="MainWindow" Height="720" Width="1280">
+    <Window.Background>
+        <SolidColorBrush Opacity=".9" Color="#b4cded"/>
+    </Window.Background>
+        <Border BorderThickness="10">
+            <Grid Style="{StaticResource MainGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <Button Style="{StaticResource MenuButton}">
+                        <Button.ToolTip>
+                            Retornar à tela inicial
+                        </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="HomeSolid"/>
+                </Button>
+                    <Button Style="{StaticResource MenuButton}">
+                        <Button.ToolTip>
+                            Indicadores
+                        </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="ChartLineSolid"/>
+                    </Button>
+                    <Button Style="{StaticResource MenuButton}">
+                        <Button.ToolTip>
+                            Operações
+                        </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="DollarSignSolid"/>
+                    </Button>
+                    <Button Style="{StaticResource MenuButton}">
+                        <Button.ToolTip>
+                            Configurações
+                        </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="CogSolid"/>
+                    </Button>
+                    <Button Style="{StaticResource MenuButton}">
+                        <Button.ToolTip>
+                            Ajuda
+                        </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="QuestionSolid"/>
+                    </Button>
+                </StackPanel>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <DockPanel Grid.Row="0">
+                        <Button x:Name="btnFechar" Style="{StaticResource CloseButton}" DockPanel.Dock="Right" Click="btnFechar_Click">
+                            <Button.ToolTip>
+                                Fechar
+                            </Button.ToolTip>
+                            <iconPacks:PackIconFontAwesome Kind="TimesSolid"/>
+                        </Button>
+                        <Button x:Name="btnMaximizar" Style="{StaticResource TopButton}" DockPanel.Dock="Right" Click="btnMaximizar_Click">
+                            <Button.ToolTip>
+                                Maximizar
+                            </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="WindowRestoreSolid"/>
+                        </Button>
+                        <Button x:Name="btnMinimizar" Style="{StaticResource TopButton}" DockPanel.Dock="Right" Click="btnMinimizar_Click">
+                            <Button.ToolTip>
+                                Minimizar
+                            </Button.ToolTip>
+                            <iconPacks:PackIconFontAwesome Kind="WindowMinimizeSolid"/>
+                        </Button>
+                        <Button x:Name="btnConta" Style="{StaticResource TopButton}" DockPanel.Dock="Right" Click="btnConta_Click">
+                            <Button.ToolTip>
+                                Conta
+                            </Button.ToolTip>
+                            <iconPacks:PackIconFontAwesome Kind="UserAltSolid"/>
+                        </Button>
+                        <TextBlock Style="{StaticResource AppName}" Text="CFC" MouseDown="TextBlock_MouseDown"/>
+                    </DockPanel>
+
+                    <Grid Style="{StaticResource MainArea}" Grid.Row="1">
+
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+</Window>
