@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MongoDB.Bson;
 using MongoDB.Driver;
-
+using cfc.pages;
+using System.ComponentModel;
 
 namespace cfc
 {
@@ -23,6 +24,8 @@ namespace cfc
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string? title { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +35,7 @@ namespace cfc
             var client = new MongoClient(settings);
             var database = client.GetDatabase("");
 
+            txtRodape.Text = "Versão 0.2.0 - Desenvolvido por Alquimia";
             
         }
 
@@ -71,15 +75,52 @@ namespace cfc
             WindowState = WindowState.Minimized;
         }
 
-        private void btnConta_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        private void txtTitle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void btnConta_Click(object sender, RoutedEventArgs e)
+        {
+            title = "Conta";
+            txtTitle.Text = "CFC - " + title;
+            frmMain.Navigate(new Conta());
+        }
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            title = "Principal";
+            txtTitle.Text = "CFC - " + title;
+            frmMain.Navigate(new Home());
+        }
+
+        private void btnIndicadores_Click(object sender, RoutedEventArgs e)
+        {
+            title = "Indicadores";
+            txtTitle.Text = "CFC - " + title;
+            frmMain.Navigate(new Indicadores());
+        }
+
+        private void btnOperacoes_Click(object sender, RoutedEventArgs e)
+        {
+            title = "Operações";
+            txtTitle.Text = "CFC - " + title;
+            frmMain.Navigate(new Operacoes());
+        }
+
+        private void btnConfig_Click(object sender, RoutedEventArgs e)
+        {
+            title = "Configurações";
+            txtTitle.Text = "CFC - " + title;
+            frmMain.Navigate(new Config());
+        }
+
+        private void btnAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            title = "Ajuda";
+            txtTitle.Text = "CFC - " + title;
+            frmMain.Navigate(new Ajuda());
         }
     }
 }

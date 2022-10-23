@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         Title="MainWindow" Height="720" Width="1280">
     <Window.Background>
-        <SolidColorBrush Opacity=".9" Color="#b4cded"/>
+        <SolidColorBrush Opacity=".9" Color="#0b132b"/>
     </Window.Background>
         <Border BorderThickness="10">
             <Grid Style="{StaticResource MainGrid}">
@@ -19,35 +19,29 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.Column="0">
-                    <Button Style="{StaticResource MenuButton}">
+                    <Button x:Name="btnHome" Style="{StaticResource MenuButton}" Click="btnHome_Click">
                         <Button.ToolTip>
                             Retornar à tela inicial
                         </Button.ToolTip>
                         <iconPacks:PackIconFontAwesome Kind="HomeSolid"/>
-                </Button>
-                    <Button Style="{StaticResource MenuButton}">
+                    </Button>
+                    <Button x:Name="btnIndicadores" Style="{StaticResource MenuButton}" Click="btnIndicadores_Click">
                         <Button.ToolTip>
                             Indicadores
                         </Button.ToolTip>
                         <iconPacks:PackIconFontAwesome Kind="ChartLineSolid"/>
                     </Button>
-                    <Button Style="{StaticResource MenuButton}">
+                    <Button x:Name="btnOperacoes" Style="{StaticResource MenuButton}" Click="btnOperacoes_Click">
                         <Button.ToolTip>
                             Operações
                         </Button.ToolTip>
                         <iconPacks:PackIconFontAwesome Kind="DollarSignSolid"/>
                     </Button>
-                    <Button Style="{StaticResource MenuButton}">
+                    <Button x:Name="btnConfig" Style="{StaticResource MenuButton}" Click="btnConfig_Click">
                         <Button.ToolTip>
                             Configurações
                         </Button.ToolTip>
                         <iconPacks:PackIconFontAwesome Kind="CogSolid"/>
-                    </Button>
-                    <Button Style="{StaticResource MenuButton}">
-                        <Button.ToolTip>
-                            Ajuda
-                        </Button.ToolTip>
-                        <iconPacks:PackIconFontAwesome Kind="QuestionSolid"/>
                     </Button>
                 </StackPanel>
 
@@ -55,6 +49,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition/>
+                        <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
 
                     <DockPanel Grid.Row="0">
@@ -76,20 +71,26 @@
                             </Button.ToolTip>
                             <iconPacks:PackIconFontAwesome Kind="WindowMinimizeSolid"/>
                         </Button>
-                        <Button x:Name="btnConta" Style="{StaticResource TopButton}" DockPanel.Dock="Right" Click="btnConta_Click">
+                    <Button x:Name="btnAjuda" Style="{StaticResource TopButton}" DockPanel.Dock="Right" Click="btnAjuda_Click">
+                            <Button.ToolTip>
+                                Ajuda
+                            </Button.ToolTip>
+                        <iconPacks:PackIconFontAwesome Kind="QuestionSolid"/>
+                    </Button>
+                    <Button x:Name="btnConta" Style="{StaticResource TopButton}" DockPanel.Dock="Right" Click="btnConta_Click">
                             <Button.ToolTip>
                                 Conta
                             </Button.ToolTip>
                             <iconPacks:PackIconFontAwesome Kind="UserAltSolid"/>
                         </Button>
-                        <TextBlock Style="{StaticResource AppName}" Text="CFC" MouseDown="TextBlock_MouseDown"/>
+                        <TextBlock x:Name="txtTitle" Style="{StaticResource AppName}" MouseDown="txtTitle_MouseDown"/>
                     </DockPanel>
 
-                    <Grid Style="{StaticResource MainArea}" Grid.Row="1">
+                    <Frame x:Name="frmMain" Style="{StaticResource MainArea}" Grid.Row="1" />
 
-                    </Grid>
+                    <TextBlock x:Name="txtRodape" Grid.Row="2" Style="{StaticResource Footer}"/>
 
-                </Grid>
+            </Grid>
             </Grid>
         </Border>
 </Window>
